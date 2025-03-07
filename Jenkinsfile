@@ -1,19 +1,22 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout Code') {
+        //Continuous Integration
+        stage('Build') {
             steps {
-              // git branch: 'main', credentialsId: 'github', url: 'git@github.com:souhirkaroui/ProjetFLSGTC.git'
-            //   sh 'ls -lah'  // Vérifier si le code est bien cloné
-             }
+                sh 'mvn clean package -DskipTests=true'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
         }
         // Continuous Integration
         stage('Build Backend') {
             steps {
                 script {
-                    dir('Authentifcation_Verif_Email') {
-                        
+                    dir('Authentifcation_Verif_Email') {        
                        // sh 'mvn clean install -U'
                         sh 'mvn clean package -DskipTests=true'
                     }
