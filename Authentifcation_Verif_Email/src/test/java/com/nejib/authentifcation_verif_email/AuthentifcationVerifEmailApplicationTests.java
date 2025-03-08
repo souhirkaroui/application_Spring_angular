@@ -3,11 +3,12 @@ package com.nejib.authentifcation_verif_email;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class AuthentifcationVerifEmailApplicationTests {
-
+public class AuthentifcationVerifEmailApplicationTests {
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+        // Test de chargement du contexte
     }
-
 }
+
