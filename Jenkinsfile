@@ -2,12 +2,13 @@ pipeline {
     agent any
     stages {
         // Continuous Integration
-        stage('Build Backend') {
+        stage('Build Backend && Frontend') {
             steps {
                 script {
                     dir('Authentifcation_Verif_Email') {        
                        // sh 'mvn clean install -U'
                         sh 'mvn clean package -DskipTests=true'
+                        sh 'cd frontend-application && npm run build --prod'
                     }
                 }       
             }
