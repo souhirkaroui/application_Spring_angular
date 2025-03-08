@@ -7,7 +7,7 @@ pipeline {
                 script {
                     dir('Authentifcation_Verif_Email') {        
                        // sh 'mvn clean install -U'
-                        sh 'mvn clean package -DskipTests=true'
+                        sh 'sudo mvn clean package -DskipTests=true'
                      }
                      dir('frontend-application') {    
                         sh 'cd frontend-application && npm run build --prod'
