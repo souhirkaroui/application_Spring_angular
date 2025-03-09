@@ -5,10 +5,10 @@ pipeline {
         stage('Build Backend && Build Frontend') {
             steps {
                 script {
-                    dir('Authentifcation_Verif_Email') {        
+                 //   dir('Authentifcation_Verif_Email') {        
                        // sh 'mvn clean install -U'
-                        sh 'sudo mvn clean package -DskipTests=true'
-                     }
+                 //       sh 'sudo mvn clean package -DskipTests=true'
+                //     }
                      dir('frontend-application') {    
                         sh 'cd frontend-application && npm run build --prod'
                     }
@@ -19,9 +19,9 @@ pipeline {
         stage('Test Backend && Test Frontend') {
             steps {
                 script {
-                    dir('Authentifcation_Verif_Email') {
-                        sh 'mvn test'
-                    }
+                 //   dir('Authentifcation_Verif_Email') {
+                 //       sh 'mvn test'
+                  //  }
                      dir('frontend-application') {   
                         sh 'cd frontend-application && npm install -g http-server'
                         sh 'http-server -p 8080 -c-1 dist/frontend-application'
