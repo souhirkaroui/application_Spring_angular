@@ -65,13 +65,11 @@ pipeline {
                 withKubeConfig([credentialsId: 'kubeconfig']) { 
                     script {
                         sh 'kubectl apply -f namespace.yml'
-                        sh 'kubectl apply -f backenddeploy.yml'
+                        sh 'kubectl apply -f backdeploy.yml'
                         sh 'kubectl apply -f frontdeploy.yml'
                         sh 'kubectl apply -f ingress.yaml'
                         
-                        // Vérification du déploiement
-                        sh 'kubectl rollout status deployment backend-deployment'
-                        sh 'kubectl rollout status deployment frontend-deployment'
+                        
                     }
                 }
             }
