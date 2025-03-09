@@ -10,7 +10,7 @@ pipeline {
                  //       sh 'sudo mvn clean package -DskipTests=true'
                 //     }
                      dir('frontend-application') {    
-                        sh 'cd frontend-application && npm run build --prod'
+                        sh 'npm run build --prod'
                     }
                 }       
             }
@@ -23,7 +23,7 @@ pipeline {
                  //       sh 'mvn test'
                   //  }
                      dir('frontend-application') {   
-                        sh 'cd frontend-application && npm install -g http-server'
+                        sh 'npm install -g http-server'
                         sh 'http-server -p 8080 -c-1 dist/frontend-application'
                     }
                 }
