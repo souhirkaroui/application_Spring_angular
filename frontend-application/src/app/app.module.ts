@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './home/not-found/not-found.component';
 import { VerifyAccoutComponent } from './home/verify-accout/verify-accout.component';
-import { CodeInputModule } from 'angular-code-input';
+import { CodeInputModule } from 'angular-code-input/lib/code-input.module';
 @NgModule({
   declarations: [
     AppComponent,
