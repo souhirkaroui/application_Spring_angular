@@ -1,5 +1,5 @@
 # Étape 1 : Build de l'application Spring Boot
-FROM maven:3.9.7-openjdk-17 AS build
+FROM maven:3.6.3-openjdk-17 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
