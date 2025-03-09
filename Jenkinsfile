@@ -10,7 +10,7 @@ pipeline {
                  //       sh 'sudo mvn clean package -DskipTests=true'
                 //     }
                      dir('frontend-application') {    
-                        sh 'npm run build --prod'
+                        sh 'export TERM=xterm && npm run build --prod'
                     }
                 }       
             }
