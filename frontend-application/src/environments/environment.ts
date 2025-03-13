@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8089/freelance',
+  apiUrl: 'http://backspring:8080',  // ou l'URL de ton API pour le dev
+  baseUrl: 'http://backspring:8080'  // Ajoute la propriété baseUrl ici
 };
