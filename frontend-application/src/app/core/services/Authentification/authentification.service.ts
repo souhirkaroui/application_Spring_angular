@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthenticationService {
+  private apiUrl = 'http://10.107.249.139/authentification';
   constructor(private http: HttpClient) {}
 
   registerUser(formData: FormData) {
