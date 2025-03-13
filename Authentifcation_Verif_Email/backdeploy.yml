@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backspring
-  namespace: my-app
+  namespace: fullstack
 spec:
   replicas: 2  # Nombre de pods backend
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backspring
-          image: souhirks/backendspring:latest  # Remplace par ton image Docker
+          image: souhirks/backend:v1  # Remplace par ton image Docker
           ports:
             - containerPort: 8080
           env:
@@ -23,12 +23,14 @@ spec:
               value: "jdbc:mysql://mysql:3306/Regiter?serverTimezone=UTC"
             - name: SPRING_DATASOURCE_USERNAME
               value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: ""
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: backspring
-  namespace: my-app
+  namespace: fullstack
 spec:
   type: NodePort
   selector:
@@ -36,3 +38,5 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
+      targetPort: 8080
+      nodePort: 30080
