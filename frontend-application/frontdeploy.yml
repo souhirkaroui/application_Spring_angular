@@ -1,35 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front
-  namespace: my-app
+  name: frontend
+  namespace: fullstack
 spec:
   replicas: 2  # Nombre de pods frontend
   selector:
     matchLabels:
-      app: front
+      app: frontend
   template:
     metadata:
       labels:
-        app: front
+        app: frontend
     spec:
       containers:
-        - name: front
-          image: souhirks/frontangular:latest  # Remplace par ton image Docker
+        - name: frontend
+          image: souhirks/frontend:v2  # Remplace par ton image Docker
           ports:
             - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: front
-  namespace: my-app
+  name: frontend
+  namespace: fullstack
 spec:
   selector:
-    app: front
+    app: frontend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30099
+      nodePort: 30086
   type: NodePort
