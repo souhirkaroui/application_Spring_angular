@@ -35,9 +35,9 @@ pipeline {
                 script {
                     dir('frontend-application') {
                         withDockerRegistry(credentialsId: 'docker', url: "") {
-                            sh 'docker build -t souhirkaroui/application_spring_angular/frontend-application .'
-                            sh 'docker tag souhirkaroui/application_spring_angular/frontend-application souhirks/frontend'
-                            sh 'docker push souhirks/frontend'
+                            sh 'docker build -t souhirkaroui/application_spring_angular/frontend-application/frontend:v2 .'
+                            sh 'docker tag souhirkaroui/application_spring_angular/frontend-application/frontend:v2 souhirks/frontend:v2'
+                            sh 'docker push souhirks/frontend:v2'
                         }
                     }
                     sh 'docker image prune -f' // Nettoyage des anciennes images
@@ -50,9 +50,9 @@ pipeline {
                 script {
                     dir('Authentifcation_Verif_Email') {
                         withDockerRegistry(credentialsId: 'docker', url: "") {
-                            sh 'docker build -t souhirkaroui/application_spring_angular/authentifcation_verif_email .'
-                            sh 'docker tag souhirkaroui/application_Spring_angular/authentifcation_verif_email souhirks/backend'
-                            sh 'docker push souhirks/backend'
+                            sh 'docker build -t souhirkaroui/application_spring_angular/authentifcation_verif_email/springback:v1 .'
+                            sh 'docker tag souhirkaroui/application_Spring_angular/authentifcation_verif_email/springback:v1 souhirks/springback:v1'
+                            sh 'docker push souhirks//springback:v1'
                         }
                     }
                     sh 'docker image prune -f' // Nettoyage des anciennes images
